@@ -14,7 +14,7 @@ func gen_terrain():
 
 	noise.seed = randi()
 
-	for x in range(0, viewport.size.x / tile_set.tile_size.x - 1):
+	for x in range(0, viewport.size.x / tile_set.tile_size.x):
 		var tiles_to_draw = max(ceil(abs(noise.get_noise_1d(x)) * max_num_stacked_tiles), 1)
 		for y in range(0, tiles_to_draw-1):
 			draw_tile(Vector2(x, max_num_stacked_tiles - y - 1))
