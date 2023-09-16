@@ -1,17 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bml8y0c36u0ax"]
+[gd_scene load_steps=8 format=3 uid="uid://bml8y0c36u0ax"]
 
-[ext_resource type="Shader" path="res://shaders/gameboy.gdshader" id="1_5vltx"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_hsskb"]
 [ext_resource type="Texture2D" uid="uid://diowx6lmdxutq" path="res://textures/tilemap.jpg" id="1_wdqfd"]
 [ext_resource type="Script" path="res://scenes/TileMap.gd" id="2_fef5b"]
+[ext_resource type="PackedScene" uid="uid://l0c4imuc0wbh" path="res://gameboy_color.tscn" id="5_888ew"]
 [ext_resource type="PackedScene" uid="uid://wrmhcd56xxj7" path="res://scenes/rocket.tscn" id="5_gowtv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nqsa"]
-shader = ExtResource("1_5vltx")
-shader_parameter/lightest = Vector3(0.878431, 0.972549, 0.815686)
-shader_parameter/light = Vector3(0.533333, 0.752941, 0.439216)
-shader_parameter/dark = Vector3(0.203922, 0.407843, 0.337255)
-shader_parameter/darkest = Vector3(0.0313726, 0.0941176, 0.12549)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_isqsr"]
 texture = ExtResource("1_wdqfd")
@@ -87,7 +80,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_isqsr")
 
 [node name="Main" type="Node2D"]
-material = SubResource("ShaderMaterial_6nqsa")
 script = ExtResource("1_hsskb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -102,5 +94,7 @@ script = ExtResource("2_fef5b")
 
 [node name="Rocket" parent="." instance=ExtResource("5_gowtv")]
 position = Vector2(82, 46)
+
+[node name="filter" parent="." instance=ExtResource("5_888ew")]
 
 [connection signal="ready_done" from="." to="TileMap" method="_on_main_ready_done"]

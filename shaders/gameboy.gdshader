@@ -16,13 +16,13 @@ void fragment() {
         float gray_val = rgb2gray(tex_color);
 
         if (gray_val < 0.25)
-                tex_color = vec4(darkest, tex_color.a);
+                tex_color = vec4(darkest, 1);
         else if (gray_val < 0.50)
-                tex_color = vec4(dark, tex_color.a);
+                tex_color = vec4(dark, 1);
         else if (gray_val < 0.75)
-                tex_color = vec4(light, tex_color.a);
+                tex_color = vec4(light, 1);
         else
-                tex_color = vec4(darkest, tex_color.a);
+                tex_color = vec4(darkest, 1);
         
         COLOR = tex_color;
 }

@@ -6,6 +6,7 @@ signal ready_done;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Engine.max_fps = 60;
 	var viewport = get_viewport();
 	var size = viewport.size;
 	viewport.size = Vector2i(size.x*pixel_size, size.y*pixel_size);

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://l0c4imuc0wbh"]
+
+[ext_resource type="Shader" path="res://shaders/gameboy.gdshader" id="1_yag8f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbiuk"]
+shader = ExtResource("1_yag8f")
+shader_parameter/lightest = Vector3(0.878431, 0.972549, 0.815686)
+shader_parameter/light = Vector3(0.533333, 0.752941, 0.439216)
+shader_parameter/dark = Vector3(0.203922, 0.407843, 0.337255)
+shader_parameter/darkest = Vector3(0.0313726, 0.0941176, 0.12549)
+
+[node name="filter" type="Node2D"]
+
+[node name="gameboy_filter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_cbiuk")
+offset_right = 15819.0
+offset_bottom = 9149.0
