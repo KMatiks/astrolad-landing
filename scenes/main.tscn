@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bml8y0c36u0ax"]
+[gd_scene load_steps=9 format=3 uid="uid://bml8y0c36u0ax"]
 
 [ext_resource type="Shader" path="res://shaders/gameboy.gdshader" id="1_5vltx"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_hsskb"]
 [ext_resource type="Texture2D" uid="uid://diowx6lmdxutq" path="res://textures/tilemap.jpg" id="1_wdqfd"]
 [ext_resource type="Script" path="res://scenes/TileMap.gd" id="2_fef5b"]
 [ext_resource type="PackedScene" uid="uid://3wy5wh3ocjh2" path="res://scenes/character_body_2d.tscn" id="3_5qs8r"]
@@ -85,7 +86,8 @@ tile_size = Vector2i(4, 4)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_isqsr")
 
-[node name="main" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_hsskb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 160.0
