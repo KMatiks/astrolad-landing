@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bml8y0c36u0ax"]
+[gd_scene load_steps=9 format=3 uid="uid://bml8y0c36u0ax"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_hsskb"]
 [ext_resource type="Texture2D" uid="uid://diowx6lmdxutq" path="res://textures/tilemap.jpg" id="1_wdqfd"]
 [ext_resource type="Script" path="res://scenes/TileMap.gd" id="2_fef5b"]
 [ext_resource type="PackedScene" uid="uid://l0c4imuc0wbh" path="res://scenes/gameboy_color.tscn" id="5_888ew"]
 [ext_resource type="PackedScene" uid="uid://wrmhcd56xxj7" path="res://scenes/rocket.tscn" id="5_gowtv"]
+[ext_resource type="Script" path="res://scenes/filter.gd" id="6_bx8w2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_isqsr"]
 texture = ExtResource("1_wdqfd")
@@ -92,5 +93,7 @@ script = ExtResource("2_fef5b")
 position = Vector2(82, 46)
 
 [node name="filter" parent="." instance=ExtResource("5_888ew")]
+script = ExtResource("6_bx8w2")
 
 [connection signal="ready_done" from="." to="TileMap" method="_on_main_ready_done"]
+[connection signal="ready_done" from="." to="filter" method="_on_main_ready_done"]

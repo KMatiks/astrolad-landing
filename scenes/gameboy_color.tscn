@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://l0c4imuc0wbh"]
+[gd_scene load_steps=3 format=3 uid="uid://l0c4imuc0wbh"]
 
 [ext_resource type="Shader" path="res://shaders/gameboy.gdshader" id="1_yag8f"]
-[ext_resource type="Script" path="res://scenes/gameboy_filter.gd" id="2_ldjgv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cbiuk"]
 shader = ExtResource("1_yag8f")
@@ -14,6 +13,5 @@ shader_parameter/darkest = Vector3(0.0313726, 0.0941176, 0.12549)
 
 [node name="gameboy_filter" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_cbiuk")
-offset_right = 15819.0
-offset_bottom = 9149.0
-script = ExtResource("2_ldjgv")
+offset_right = 206.0
+offset_bottom = 217.0
