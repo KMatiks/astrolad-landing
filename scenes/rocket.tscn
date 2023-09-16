@@ -1,13 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://wrmhcd56xxj7"]
 
-[ext_resource type="Texture2D" uid="uid://s4sn5w6yxtp0" path="res://assets/rocketboi2.png" id="1_468ox"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yie1b"]
+[ext_resource type="Script" path="res://scenes/rocket.gd" id="1_6ikh3"]
+[ext_resource type="Texture2D" uid="uid://732p0hhp005c" path="res://assets/rocketboi2.png" id="1_468ox"]
 
 [node name="Rocket" type="RigidBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_yie1b")
+use_parent_material = true
+script = ExtResource("1_6ikh3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_468ox")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+use_parent_material = true
+position = Vector2(0.425, -0.514285)
+scale = Vector2(0.643973, 0.643973)
+polygon = PackedVector2Array(-6, -11, -1, -16, 1, -16, 8, -8, 8, -7, 9, -7, 9, 1, 11, 3, 12, 5, 13, 7, 14, 9, 14, 10, 5, 10, 11, 16, -11, 16, -5, 10, -14, 10, -14, 7, -13, 6, -12, 5, -12, 4, -11, 3, -10, 2, -9, 1, -9, -7, -8, -8, -8, -9)
