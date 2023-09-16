@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b06twglepfvr2"]
+
+[ext_resource type="PackedScene" uid="uid://d2o5vbr7ffhrw" path="res://scenes/rocket.tscn" id="1_1ggxh"]
+[ext_resource type="Script" path="res://playground/rocket_pg.gd" id="1_ufxaa"]
+
+[node name="Rocket Playground" type="Node2D"]
+script = ExtResource("1_ufxaa")
+
+[node name="Rocket" parent="." instance=ExtResource("1_1ggxh")]
