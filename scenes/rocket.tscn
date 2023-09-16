@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://wrmhcd56xxj7"]
+[gd_scene load_steps=3 format=3 uid="uid://wrmhcd56xxj7"]
+
+[ext_resource type="Texture2D" uid="uid://s4sn5w6yxtp0" path="res://assets/rocketboi2.png" id="1_468ox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yie1b"]
 
-[node name="Rocket" type="CharacterBody2D"]
+[node name="Rocket" type="RigidBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yie1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_468ox")
