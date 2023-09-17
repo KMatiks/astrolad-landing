@@ -1,6 +1,8 @@
 extends TileMap
 
 
+var height_map : Array;
+
 func draw_tile(pos):
 	var atlas = Vector2(randi_range(0,3), randi_range(0,3))
 	var surface_tile = Vector2i(atlas.x, atlas.y);
@@ -16,7 +18,8 @@ func gen_terrain():
 
 	for x in range(0, viewport.size.x / tile_set.tile_size.x):
 		var tiles_to_draw = max(ceil(clampf(abs(noise.get_noise_1d(x)), 0.10, 0.40) * max_num_stacked_tiles), 1)
-		for y in range(0, tiles_to_draw-1):
+		height_map.append((max_num_stacked_tiles-tiles_to_draw)*tile_set.tile_size.y)
+		for y in range(0, tiles_to_draw):
 			draw_tile(Vector2(x, max_num_stacked_tiles - y - 1))
 
 # Called when the node enters the scene tree for the first time.

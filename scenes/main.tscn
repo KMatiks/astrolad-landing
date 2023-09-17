@@ -84,7 +84,7 @@ sources/0 = SubResource("TileSetAtlasSource_isqsr")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_hsskb")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["terrain"]]
 use_parent_material = true
 tile_set = SubResource("TileSet_gwu4f")
 format = 2

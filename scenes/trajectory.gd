@@ -2,8 +2,6 @@ extends Line2D
 
 @onready
 var rocket = get_parent();
-var prev_vel = Vector2.ZERO;
-var cur_vel = Vector2.ZERO;
 const MAX_POINTS = 5000
 
 # Called when the node enters the scene tree for the first time.
@@ -12,23 +10,37 @@ func _ready():
 	width = 2;
 
 func update_trajectory(delta: float) -> void:
+	var terrain: TileMap;
+	var gravity: float;
+	var pos: Vector2;
+	var prev_vel: Vector2;
+	var cur_vel: Vector2;
+
 	clear_points();
-	var gravity = rocket.gravity_scale;
-	cur_vel = rocket.get_linear_velocity()# * rocket.global_transform.x;
-#	var acceleration = Vector2((cur_vel.x - prev_vel.x) / delta, (cur_vel.y - prev_vel.y) / delta);
-	var pos = rocket.global_position
+
+	prev_vel = Vector2.ZERO;
+	cur_vel = Vector2.ZERO;
+
+	terrain = get_tree().get_nodes_in_group("terrain")[0]
+	gravity = rocket.gravity_scale;
+	cur_vel = rocket.get_linear_velocity()
+	pos = rocket.global_position
+
 	for pt in range(MAX_POINTS):
+		add_point(to_local(pos));
 		cur_vel.y += gravity;
 		pos += cur_vel * delta;
-		add_point(to_local(pos));
 
-#		if pos.y > rocket.position.y - 25:
-#			break
+		# Don't perform bounds check if trajectory exceeds viewport dimensions!
+		if pos.x / 4 < 0 or pos.x / 4 >= get_viewport().size.x / 4:
+			continue
+
+		if pos.y >= terrain.height_map[floor(pos.x / 4)]:
+			break;
 
 	prev_vel = cur_vel;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var heading_in_degrees = rad_to_deg(rocket.rotation);
 	update_trajectory(delta);
 	show()
