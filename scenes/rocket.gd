@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const THRUST = 100;
-const TORQUE_THRUST = 20;
+const TORQUE_THRUST = 70;
 const GRAVITY = 0.045;
 
 var prev_frame_vel;
