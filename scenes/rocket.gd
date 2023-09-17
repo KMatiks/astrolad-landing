@@ -32,8 +32,8 @@ func _process(delta):
 	prev_frame_vel = linear_velocity;
 
 func has_collision_occurred() -> bool:
-	return (abs(prev_frame_vel.y) > 12 or abs(prev_frame_vel.x) > 12) and abs(rotation) > 0.01
+	return (abs(prev_frame_vel.y) > 12 or abs(prev_frame_vel.x) > 12) or abs(rotation) > 0.05
 
 func _on_body_entered(body):
-	if body is TileMap and (abs(prev_frame_vel.y) > 10 or abs(prev_frame_vel.x) > 10):
+	if body is TileMap and has_collision_occurred():
 		print("Crashed!")
