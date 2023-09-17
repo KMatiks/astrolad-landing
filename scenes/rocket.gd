@@ -33,6 +33,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	#print(prev_frame_vel)
 	if body is TileMap and (abs(prev_frame_vel.y) > 10 or abs(prev_frame_vel.x) > 10):
 		print("Crashed!")
