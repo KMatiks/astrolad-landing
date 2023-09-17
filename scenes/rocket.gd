@@ -31,6 +31,8 @@ func _process(delta):
 
 	prev_frame_vel = linear_velocity;
 
+func has_collision_occurred() -> bool:
+	return (abs(prev_frame_vel.y) > 12 or abs(prev_frame_vel.x) > 12) and abs(rotation) > 0.01
 
 func _on_body_entered(body):
 	if body is TileMap and (abs(prev_frame_vel.y) > 10 or abs(prev_frame_vel.x) > 10):

@@ -8,7 +8,7 @@
 position = Vector2(-1, 0)
 script = ExtResource("1_6ikh3")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="trajectory_line" type="Line2D" parent="."]
 points = PackedVector2Array(-1, -2)
 width = 5.0
 default_color = Color(0.843137, 0.498039, 0.913725, 1)
