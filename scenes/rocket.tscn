@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://wrmhcd56xxj7"]
+[gd_scene load_steps=5 format=3 uid="uid://wrmhcd56xxj7"]
 
 [ext_resource type="Script" path="res://scenes/rocket.gd" id="1_6ikh3"]
 [ext_resource type="Texture2D" uid="uid://732p0hhp005c" path="res://assets/rocketboi2.png" id="1_468ox"]
 [ext_resource type="Script" path="res://scenes/Label.gd" id="3_s8rtb"]
+[ext_resource type="Script" path="res://scenes/trajectory.gd" id="4_fv1xk"]
 
 [node name="Rocket" type="RigidBody2D"]
 use_parent_material = true
 script = ExtResource("1_6ikh3")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-1, -2)
+width = 5.0
+default_color = Color(0.843137, 0.498039, 0.913725, 1)
+script = ExtResource("4_fv1xk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
