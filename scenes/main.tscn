@@ -92,8 +92,8 @@ script = ExtResource("2_fef5b")
 [node name="Rocket" parent="." instance=ExtResource("5_gowtv")]
 position = Vector2(82, 46)
 
-[node name="filter" parent="." instance=ExtResource("5_888ew")]
+[node name="Filter" parent="." instance=ExtResource("5_888ew")]
 script = ExtResource("6_bx8w2")
 
 [connection signal="ready_done" from="." to="TileMap" method="_on_main_ready_done"]
-[connection signal="ready_done" from="." to="filter" method="_on_main_ready_done"]
+[connection signal="ready_done" from="." to="Filter" method="_on_main_ready_done"]

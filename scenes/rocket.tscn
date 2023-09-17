@@ -26,3 +26,5 @@ offset_top = 1.0
 offset_right = 160.0
 offset_bottom = 24.0
 script = ExtResource("3_s8rtb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

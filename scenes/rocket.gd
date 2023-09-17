@@ -1,12 +1,13 @@
 extends RigidBody2D
 
 const THRUST = 1;
-const GRAVITY = 0.035;
+const GRAVITY = 0.045;
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	contact_monitor = true;
+	max_contacts_reported = 100;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,3 +25,10 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		move_speed = Vector2(0, -THRUST).rotated(rotation);
 		apply_central_impulse(move_speed)
+
+
+func _on_body_entered(body):
+	var linear_vel = get_linear_velocity();
+	print(linear_vel)
+	if body is TileMap and abs(linear_vel.y) > 5 and abs(linear_vel.x) > 5:
+		print("Crashed!")
