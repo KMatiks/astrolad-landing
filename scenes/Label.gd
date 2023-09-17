@@ -1,0 +1,12 @@
+extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var format_str = "Angular Velocity: %f\nLinear Velocity: %s"
+	text = format_str % [get_parent().get_angular_velocity(), get_parent().get_linear_velocity()]

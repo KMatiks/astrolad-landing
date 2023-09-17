@@ -19,3 +19,5 @@ func _on_main_ready_done():
 	for child in children:
 		child.size.x = viewport.size.x;
 		child.size.y = viewport.size.y;
+
+

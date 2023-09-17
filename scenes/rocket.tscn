@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wrmhcd56xxj7"]
+[gd_scene load_steps=4 format=3 uid="uid://wrmhcd56xxj7"]
 
 [ext_resource type="Script" path="res://scenes/rocket.gd" id="1_6ikh3"]
 [ext_resource type="Texture2D" uid="uid://732p0hhp005c" path="res://assets/rocketboi2.png" id="1_468ox"]
+[ext_resource type="Script" path="res://scenes/Label.gd" id="3_s8rtb"]
 
 [node name="Rocket" type="RigidBody2D"]
 use_parent_material = true
@@ -18,3 +19,10 @@ use_parent_material = true
 position = Vector2(0.425, -0.514285)
 scale = Vector2(0.643973, 0.643973)
 polygon = PackedVector2Array(-6, -11, -1, -16, 1, -16, 8, -8, 8, -7, 9, -7, 9, 1, 11, 3, 12, 5, 13, 7, 14, 9, 14, 10, 5, 10, 11, 16, -11, 16, -5, 10, -14, 10, -14, 7, -13, 6, -12, 5, -12, 4, -11, 3, -10, 2, -9, 1, -9, -7, -8, -8, -8, -9)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 120.0
+offset_top = 1.0
+offset_right = 160.0
+offset_bottom = 24.0
+script = ExtResource("3_s8rtb")

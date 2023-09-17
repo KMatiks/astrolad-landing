@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b85y363uhd5lu"]
+
+[ext_resource type="Texture2D" uid="uid://d22lcpxvet1v2" path="res://textures/fire.png" id="1_tl3wm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eb4h0"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 1, 0)
+angular_velocity_max = 2.55
+orbit_velocity_min = -1000.0
+orbit_velocity_max = -926.31
+anim_speed_max = 10.1
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+process_material = SubResource("ParticleProcessMaterial_eb4h0")
+texture = ExtResource("1_tl3wm")
+explosiveness = 1.0
+randomness = 0.38
