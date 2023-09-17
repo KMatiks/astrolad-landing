@@ -3,6 +3,8 @@ extends RigidBody2D
 const THRUST = 1;
 const GRAVITY = 0.045;
 
+var prev_frame_vel;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,9 +28,10 @@ func _process(delta):
 		move_speed = Vector2(0, -THRUST).rotated(rotation);
 		apply_central_impulse(move_speed)
 
+	prev_frame_vel = linear_velocity;
+
 
 func _on_body_entered(body):
-	var linear_vel = get_linear_velocity();
-	print(linear_vel)
-	if body is TileMap and abs(linear_vel.y) > 5 and abs(linear_vel.x) > 5:
+	print(prev_frame_vel)
+	if body is TileMap and (abs(prev_frame_vel.y) > 10 or abs(prev_frame_vel.x) > 10):
 		print("Crashed!")
