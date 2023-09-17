@@ -22,9 +22,6 @@ func _process(delta):
 		apply_torque(TORQUE_THRUST)
 	if Input.is_action_pressed("ui_left"):
 		apply_torque(-TORQUE_THRUST)
-	if Input.is_action_pressed("ui_down"):
-		move_speed = Vector2(0, THRUST).rotated(rotation);
-		apply_central_force(move_speed)
 	if Input.is_action_pressed("ui_up"):
 		move_speed = Vector2(0, -THRUST).rotated(rotation);
 		apply_central_force(move_speed)
