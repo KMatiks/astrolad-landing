@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_45hhq"]
 [ext_resource type="Texture2D" uid="uid://diowx6lmdxutq" path="res://textures/tilemap.jpg" id="1_wdqfd"]
-[ext_resource type="Script" path="res://scripts/TileMap.gd" id="3_ro0qo"]
+[ext_resource type="Script" path="res://scripts/terrain.gd" id="3_oa7wy"]
 [ext_resource type="PackedScene" uid="uid://l0c4imuc0wbh" path="res://scenes/gameboy_color.tscn" id="5_888ew"]
 [ext_resource type="PackedScene" uid="uid://wrmhcd56xxj7" path="res://scenes/rocket.tscn" id="5_gowtv"]
 [ext_resource type="Script" path="res://scripts/filter.gd" id="6_aw75f"]
@@ -88,7 +88,7 @@ script = ExtResource("1_45hhq")
 use_parent_material = true
 tile_set = SubResource("TileSet_gwu4f")
 format = 2
-script = ExtResource("3_ro0qo")
+script = ExtResource("3_oa7wy")
 
 [node name="Rocket" parent="." instance=ExtResource("5_gowtv")]
 position = Vector2(82, 46)
