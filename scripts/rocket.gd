@@ -8,6 +8,9 @@ const GRAVITY_SCALE: float = 0.045;
 var prev_frame_vel: Vector2;
 var is_accepting_input: bool = true;
 
+signal rocket_landing_failed;
+signal rocket_landing_succeeded;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	contact_monitor = true;
@@ -52,6 +55,8 @@ func _on_body_entered(body):
 
 	if has_collision_occurred():
 		print("Crashed w/ velocity: ", prev_frame_vel)
+		emit_signal("rocket_landing_failed");
 		return;
 
 	print("Successful landing!")
+	emit_signal("rocket_landing_succeeded");
