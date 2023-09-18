@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bv5ds0ndjp2rv"]
 
-[ext_resource type="Script" path="res://scenes/Label.gd" id="1_drmqt"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="1_drmqt"]
 
 [node name="Information" type="Label"]
 offset_left = 120.0
