@@ -14,10 +14,8 @@ func update_trajectory(delta: float) -> void:
 	var terrain: TileMap;
 	var gravity: float;
 	var pos: Vector2;
-	var prev_vel: Vector2;
 	var cur_vel: Vector2;
 
-	prev_vel = Vector2.ZERO;
 	cur_vel = Vector2.ZERO;
 
 	terrain = get_tree().get_nodes_in_group("terrain")[0]
@@ -38,8 +36,6 @@ func update_trajectory(delta: float) -> void:
 
 		if pos.y >= terrain.height_map[floor(pos.x / 4)]:
 			break;
-
-	prev_vel = cur_vel;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
