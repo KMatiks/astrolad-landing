@@ -22,7 +22,7 @@ void fragment() {
         else if (gray_val < 0.75)
                 tex_color = vec4(light, 1);
         else
-                tex_color = vec4(darkest, 1);
+                tex_color = vec4(lightest, 1);
         
         COLOR = tex_color;
 }
