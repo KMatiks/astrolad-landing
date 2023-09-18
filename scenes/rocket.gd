@@ -4,7 +4,8 @@ const THRUST = 100;
 const TORQUE_THRUST = 70;
 const GRAVITY = 0.045;
 
-var prev_frame_vel;
+var prev_frame_vel: Vector2;
+var is_accepting_input: bool = true;
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +18,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var move_speed;
+
+	if not is_accepting_input:
+		return
 
 	if Input.is_action_pressed("ui_right"):
 		apply_torque(TORQUE_THRUST)
@@ -32,5 +36,6 @@ func has_collision_occurred() -> bool:
 	return (abs(prev_frame_vel.y) > 12 or abs(prev_frame_vel.x) > 12) or abs(rotation) > 0.05
 
 func _on_body_entered(body):
+	is_accepting_input = false;
 	if body is TileMap and has_collision_occurred():
 		print("Crashed!")
