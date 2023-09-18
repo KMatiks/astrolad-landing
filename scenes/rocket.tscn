@@ -30,3 +30,4 @@ polygon = PackedVector2Array(-0.659966, -31.8114, 8.6572, -17.8357, 8.6572, 17.8
 script = ExtResource("5_4gpbr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="trajectory_line" method="_on_rocket_body_entered"]
