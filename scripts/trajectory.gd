@@ -35,7 +35,7 @@ func update_trajectory(delta: float) -> void:
 
 		# Don't perform bounds check if trajectory exceeds viewport dimensions!
 		if pos.x / 4 < 0 or pos.x / 4 >= get_viewport().size.x / 4:
-			continue
+			continue;
 
 		if pos.y >= terrain.height_map[floor(pos.x / 4)]:
 			break;

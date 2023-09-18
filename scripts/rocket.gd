@@ -16,7 +16,7 @@ func _ready():
 
 # Handles out of bounds collisions
 func has_oob_collision_occurred() -> bool:
-	return global_position.y >= get_viewport().size.y
+	return global_position.y >= get_viewport().size.y;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
