@@ -1,15 +1,16 @@
 extends Line2D
 
 @onready
-var rocket = get_parent();
+var rocket: RigidBody2D = get_parent();
 var can_update: bool = true;
 
-const MAX_POINTS = 5000;
+const MAX_POINTS: int = 5000;
+const WIDTH: int = 2;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	antialiased = true;
-	width = 2;
+	width = WIDTH;
 
 func update_trajectory(delta: float) -> void:
 	var terrain: TileMap;
