@@ -101,20 +101,20 @@ script = ExtResource("2_tgqhe")
 z_index = -1
 position = Vector2(1, 34)
 sprite_frames = SubResource("SpriteFrames_lrdf6")
-frame_progress = 0.503484
+frame_progress = 0.827718
 
 [node name="Right Thruster" type="AnimatedSprite2D" parent="Sprite2D/Thrusters"]
 z_index = -1
 position = Vector2(13, -2)
 sprite_frames = SubResource("SpriteFrames_k6xwr")
-frame_progress = 0.70083
+frame_progress = 0.0250644
 
 [node name="Left Thruster" type="AnimatedSprite2D" parent="Sprite2D/Thrusters"]
 z_index = -1
 position = Vector2(-12, -2)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_vxinu")
-frame_progress = 0.765614
+frame_progress = 0.08985
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 use_parent_material = true

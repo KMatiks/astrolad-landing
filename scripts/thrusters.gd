@@ -25,10 +25,8 @@ func _on_rocket_left_thruster_inactive():
 
 
 func _on_rocket_right_thruster_active():
-	print("active")
 	right_thruster.visible = true
 
 
 func _on_rocket_right_thruster_inactive():
-	print("inactive")
-	left_thruster.visible = false
+	right_thruster.visible = false
