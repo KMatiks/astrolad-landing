@@ -2,6 +2,7 @@ extends RigidBody2D
 
 
 const THRUST: int = 100;
+const SIDE_THRUST: int = 5;
 const TORQUE_THRUST: int = 70;
 const GRAVITY_SCALE: float = 0.045;
 
@@ -10,6 +11,8 @@ const GRAVITY_SCALE: float = 0.045;
 @onready var sprite_width: int = sprite.texture.get_width();
 var prev_frame_vel: Vector2;
 var is_accepting_input: bool = true;
+@onready var left_thruster: AnimatedSprite2D = $"Sprite2D/Thrusters/Left Thruster"
+@onready var right_thruster: AnimatedSprite2D = $"Sprite2D/Thrusters/Right Thruster"
 
 signal rocket_landing_failed;
 signal rocket_landing_succeeded;
@@ -46,13 +49,13 @@ func _process(delta):
 		return
 
 	if Input.is_action_pressed("ui_right"):
-		apply_torque(TORQUE_THRUST)
+		apply_force(Vector2(-SIDE_THRUST, 0), to_global(right_thruster.position));
 		emit_signal(right_thruster_active.get_name())
 	else:
 		emit_signal(right_thruster_inactive.get_name())
 
 	if Input.is_action_pressed("ui_left"):
-		apply_torque(-TORQUE_THRUST)
+		apply_force(Vector2(SIDE_THRUST, 0), to_global(left_thruster.position));
 		emit_signal(left_thruster_active.get_name())
 	else:
 		emit_signal(left_thruster_inactive.get_name())

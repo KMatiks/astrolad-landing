@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://didqxfcbjr101" path="res://assets/mainthruster/mainthruster_1.png" id="2_snfjm"]
 [ext_resource type="Script" path="res://scripts/thrusters.gd" id="2_tgqhe"]
 [ext_resource type="Texture2D" uid="uid://dq8xdijwwilfk" path="res://assets/mainthruster/mainthruster_2.png" id="3_3k1ln"]
-[ext_resource type="Texture2D" uid="uid://dw1c3x674ylki" path="res://assets/rocketboi3.png" id="3_76lni"]
+[ext_resource type="Texture2D" uid="uid://dlk6f0xmjf7wr" path="res://assets/rocketboi3.png" id="3_76lni"]
 [ext_resource type="Script" path="res://scripts/rocket_sprite.gd" id="4_h6esk"]
 [ext_resource type="Texture2D" uid="uid://bgeq6r02t4cd8" path="res://assets/mainthruster/mainthruster_3.png" id="4_txj8t"]
 [ext_resource type="Script" path="res://scripts/rocket_collider.gd" id="5_5muko"]
