@@ -9,10 +9,11 @@ const GRAVITY_SCALE: float = 0.045;
 @onready var viewport: Window = get_viewport();
 @onready var sprite: Sprite2D = get_child(1);
 @onready var sprite_width: int = sprite.texture.get_width();
-var prev_frame_vel: Vector2;
-var is_accepting_input: bool = true;
 @onready var left_thruster: AnimatedSprite2D = $"Sprite2D/Thrusters/Left Thruster"
 @onready var right_thruster: AnimatedSprite2D = $"Sprite2D/Thrusters/Right Thruster"
+var prev_frame_vel: Vector2;
+var is_accepting_input: bool = true;
+
 
 signal rocket_landing_failed;
 signal rocket_landing_succeeded;
