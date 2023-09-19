@@ -13,6 +13,12 @@ var is_accepting_input: bool = true;
 
 signal rocket_landing_failed;
 signal rocket_landing_succeeded;
+signal right_thruster_active;
+signal left_thruster_active;
+signal main_thruster_active;
+signal right_thruster_inactive;
+signal left_thruster_inactive;
+signal main_thruster_inactive;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,11 +47,22 @@ func _process(delta):
 
 	if Input.is_action_pressed("ui_right"):
 		apply_torque(TORQUE_THRUST)
+		emit_signal(right_thruster_active.get_name())
+	else:
+		emit_signal(right_thruster_inactive.get_name())
+
 	if Input.is_action_pressed("ui_left"):
 		apply_torque(-TORQUE_THRUST)
+		emit_signal(left_thruster_active.get_name())
+	else:
+		emit_signal(left_thruster_inactive.get_name())
+
 	if Input.is_action_pressed("ui_up"):
 		move_speed = Vector2(0, -THRUST).rotated(rotation);
 		apply_central_force(move_speed)
+		emit_signal(main_thruster_active.get_name())
+	else:
+		emit_signal(main_thruster_inactive.get_name())
 
 	prev_frame_vel = linear_velocity;
 
@@ -54,6 +71,9 @@ func has_collision_occurred() -> bool:
 
 func _on_body_entered(body):
 	is_accepting_input = false;
+	emit_signal(main_thruster_inactive.get_name())
+	emit_signal(left_thruster_inactive.get_name())
+	emit_signal(right_thruster_inactive.get_name())
 
 	if not body is TileMap:
 		return;

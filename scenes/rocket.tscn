@@ -1,11 +1,80 @@
-[gd_scene load_steps=7 format=3 uid="uid://wrmhcd56xxj7"]
+[gd_scene load_steps=19 format=3 uid="uid://wrmhcd56xxj7"]
 
 [ext_resource type="Script" path="res://scripts/rocket.gd" id="1_3jjoy"]
 [ext_resource type="Script" path="res://scripts/trajectory.gd" id="2_i8psc"]
-[ext_resource type="Texture2D" uid="uid://mvp41fr4gbrm" path="res://assets/rocketboi3.png" id="3_76lni"]
+[ext_resource type="Texture2D" uid="uid://didqxfcbjr101" path="res://assets/mainthruster/mainthruster_1.png" id="2_snfjm"]
+[ext_resource type="Script" path="res://scripts/thrusters.gd" id="2_tgqhe"]
+[ext_resource type="Texture2D" uid="uid://dq8xdijwwilfk" path="res://assets/mainthruster/mainthruster_2.png" id="3_3k1ln"]
+[ext_resource type="Texture2D" uid="uid://dw1c3x674ylki" path="res://assets/rocketboi3.png" id="3_76lni"]
 [ext_resource type="Script" path="res://scripts/rocket_sprite.gd" id="4_h6esk"]
+[ext_resource type="Texture2D" uid="uid://bgeq6r02t4cd8" path="res://assets/mainthruster/mainthruster_3.png" id="4_txj8t"]
 [ext_resource type="Script" path="res://scripts/rocket_collider.gd" id="5_5muko"]
+[ext_resource type="Texture2D" uid="uid://cyiaab0t41isg" path="res://assets/mainthruster/mainthruster_4.png" id="5_74hjv"]
 [ext_resource type="Script" path="res://scripts/rocket_camera.gd" id="6_ln3be"]
+[ext_resource type="Texture2D" uid="uid://dkf4w7ava1ypg" path="res://assets/sidethruster/sidethruster_1.png" id="10_yotmw"]
+[ext_resource type="Texture2D" uid="uid://r6xshonf0a4r" path="res://assets/sidethruster/sidethruster_2.png" id="11_msr2n"]
+[ext_resource type="Texture2D" uid="uid://cb7yfak4mf4vl" path="res://assets/sidethruster/sidethruster_3.png" id="12_dxtht"]
+[ext_resource type="Texture2D" uid="uid://bcku7jvwhd88y" path="res://assets/sidethruster/sidethruster_4.png" id="13_cbext"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrdf6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_snfjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3k1ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_txj8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_74hjv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6xwr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yotmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_msr2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dxtht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cbext")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxinu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yotmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_msr2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dxtht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cbext")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="Rocket" type="RigidBody2D" groups=["rocket"]]
 position = Vector2(-1, 0)
@@ -23,6 +92,30 @@ scale = Vector2(0.625, 0.625)
 texture = ExtResource("3_76lni")
 script = ExtResource("4_h6esk")
 
+[node name="Thrusters" type="Node2D" parent="Sprite2D"]
+position = Vector2(-7.15256e-07, -7.62939e-07)
+scale = Vector2(1.6, 1.6)
+script = ExtResource("2_tgqhe")
+
+[node name="Main Thruster" type="AnimatedSprite2D" parent="Sprite2D/Thrusters"]
+z_index = -1
+position = Vector2(1, 34)
+sprite_frames = SubResource("SpriteFrames_lrdf6")
+frame_progress = 0.503484
+
+[node name="Right Thruster" type="AnimatedSprite2D" parent="Sprite2D/Thrusters"]
+z_index = -1
+position = Vector2(13, -2)
+sprite_frames = SubResource("SpriteFrames_k6xwr")
+frame_progress = 0.70083
+
+[node name="Left Thruster" type="AnimatedSprite2D" parent="Sprite2D/Thrusters"]
+z_index = -1
+position = Vector2(-12, -2)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_vxinu")
+frame_progress = 0.765614
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 use_parent_material = true
 position = Vector2(0.425, -0.514285)
@@ -35,3 +128,9 @@ script = ExtResource("6_ln3be")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="trajectory_line" method="_on_rocket_body_entered"]
+[connection signal="left_thruster_active" from="." to="Sprite2D/Thrusters" method="_on_rocket_left_thruster_active"]
+[connection signal="left_thruster_inactive" from="." to="Sprite2D/Thrusters" method="_on_rocket_left_thruster_inactive"]
+[connection signal="main_thruster_active" from="." to="Sprite2D/Thrusters" method="_on_rocket_main_thruster_active"]
+[connection signal="main_thruster_inactive" from="." to="Sprite2D/Thrusters" method="_on_rocket_main_thruster_inactive"]
+[connection signal="right_thruster_active" from="." to="Sprite2D/Thrusters" method="_on_rocket_right_thruster_active"]
+[connection signal="right_thruster_inactive" from="." to="Sprite2D/Thrusters" method="_on_rocket_right_thruster_inactive"]
