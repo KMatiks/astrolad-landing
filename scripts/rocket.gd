@@ -2,7 +2,7 @@ extends RigidBody2D
 
 
 const THRUST: int = 100;
-const SIDE_THRUST: int = 5;
+const SIDE_THRUST: int = 2;
 const TORQUE_THRUST: int = 70;
 const GRAVITY_SCALE: float = 0.045;
 

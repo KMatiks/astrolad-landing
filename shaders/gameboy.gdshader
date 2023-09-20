@@ -20,7 +20,7 @@ void fragment() {
 		// Quantize `UV` to a stepped value based on the desired resolution by multiplying then flooring the coords
 		// +0.5 to sample from center of the pixel
 		// Using res.x or res.y shouldn't matter since we're dividing by res.x or res.y anyways
-		vec2 uv = (vec2(ivec2(UV * res.x))+0.5) / res.x;
+		vec2 uv = (vec2(ivec2(UV * res)) + 0.5) / res;
 		vec4 tex_color = textureLod(SCREEN_TEXTURE, uv, 0); // Sample the screen texture using new coords
 		// =================================================
 		
