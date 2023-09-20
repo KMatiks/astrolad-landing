@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxng447uvv4n3"]
+
+[ext_resource type="FontFile" uid="uid://bnx6065pkfged" path="res://fonts/Early GameBoy.ttf" id="1_depl0"]
+[ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="2_wibun"]
+[ext_resource type="Texture2D" uid="uid://bhe7umcuxyp4c" path="res://assets/main_menu.png" id="3_ahpm8"]
+[ext_resource type="Script" path="res://scripts/main_menu_background.gd" id="4_5yneg"]
+[ext_resource type="Script" path="res://scenes/main_menu_container.gd" id="5_lhxh7"]
+[ext_resource type="Script" path="res://scripts/game_over_text.gd" id="6_ofbsw"]
+[ext_resource type="Script" path="res://scripts/try_again_button.gd" id="7_al1v2"]
+[ext_resource type="Script" path="res://scripts/quit_button.gd" id="8_8ku3y"]
+[ext_resource type="PackedScene" uid="uid://l0c4imuc0wbh" path="res://scenes/gameboy_color.tscn" id="9_1wipb"]
+
+[sub_resource type="Theme" id="Theme_ow606"]
+default_font = ExtResource("1_depl0")
+/fonts/font = ExtResource("1_depl0")
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ow606")
+script = ExtResource("2_wibun")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ahpm8")
+script = ExtResource("4_5yneg")
+
+[node name="MainMenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_lhxh7")
+
+[node name="GameOverText" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+script = ExtResource("6_ofbsw")
+
+[node name="TryAgainButton" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+script = ExtResource("7_al1v2")
+
+[node name="QuitButton" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../TryAgainButton")
+script = ExtResource("8_8ku3y")
+
+[node name="filter" parent="." instance=ExtResource("9_1wipb")]
+
+[connection signal="pressed" from="MainMenuContainer/TryAgainButton" to="MainMenuContainer/TryAgainButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_pressed"]

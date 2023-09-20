@@ -86,8 +86,11 @@ func _on_body_entered(body):
 
 	if has_collision_occurred():
 		print("Crashed w/ velocity: ", prev_frame_vel)
-		emit_signal("rocket_landing_failed");
+		SignalBus.emit_signal("rocket_landing_failed");
+		SignalBus.game_over_text = "Nice Try!"
+		get_tree().change_scene_to_file("res://scenes/game_over_menu.tscn");
 		return;
 
 	print("Successful landing!")
-	emit_signal("rocket_landing_succeeded");
+	SignalBus.game_over_text = "Great Job!"
+	SignalBus.emit_signal("rocket_landing_succeeded");

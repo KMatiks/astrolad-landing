@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv5ds0ndjp2rv"]
+[gd_scene load_steps=3 format=3 uid="uid://bv5ds0ndjp2rv"]
 
 [ext_resource type="Script" path="res://scripts/metrics_label.gd" id="1_drmqt"]
+[ext_resource type="FontFile" uid="uid://bnx6065pkfged" path="res://fonts/Early GameBoy.ttf" id="1_i7h3r"]
 
 [node name="Information" type="Label"]
 offset_left = 120.0
@@ -9,4 +10,5 @@ offset_right = 160.0
 offset_bottom = 24.0
 theme_override_colors/font_color = Color(0.2, 0.376471, 0.305882, 1)
 theme_override_colors/font_shadow_color = Color(0.2, 0.376471, 0.305882, 1)
+theme_override_fonts/font = ExtResource("1_i7h3r")
 script = ExtResource("1_drmqt")

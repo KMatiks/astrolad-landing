@@ -1,15 +1,12 @@
-extends Node
+extends Label
 
-signal main_menu_ran;
-
-var has_transitioned_to_main_menu: bool = false;
-var game_over_text: String;
+var txt: String;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	text = SignalBus.game_over_text;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass;
