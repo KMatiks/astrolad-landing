@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://wrmhcd56xxj7"]
+[gd_scene load_steps=18 format=3 uid="uid://wrmhcd56xxj7"]
 
 [ext_resource type="Script" path="res://scripts/rocket.gd" id="1_3jjoy"]
 [ext_resource type="Script" path="res://scripts/trajectory.gd" id="2_i8psc"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bgeq6r02t4cd8" path="res://assets/mainthruster/mainthruster_3.png" id="4_txj8t"]
 [ext_resource type="Script" path="res://scripts/rocket_collider.gd" id="5_5muko"]
 [ext_resource type="Texture2D" uid="uid://cyiaab0t41isg" path="res://assets/mainthruster/mainthruster_4.png" id="5_74hjv"]
-[ext_resource type="Script" path="res://scripts/rocket_camera.gd" id="6_ln3be"]
 [ext_resource type="Texture2D" uid="uid://dkf4w7ava1ypg" path="res://assets/sidethruster/sidethruster_1.png" id="10_yotmw"]
 [ext_resource type="Texture2D" uid="uid://r6xshonf0a4r" path="res://assets/sidethruster/sidethruster_2.png" id="11_msr2n"]
 [ext_resource type="Texture2D" uid="uid://cb7yfak4mf4vl" path="res://assets/sidethruster/sidethruster_3.png" id="12_dxtht"]
@@ -122,9 +121,6 @@ position = Vector2(0.425, -0.514285)
 scale = Vector2(0.643973, 0.643973)
 polygon = PackedVector2Array(-0.659966, -31.8114, 8.6572, -17.8357, 8.6572, 17.8801, 13.3158, 25.6444, 3.99861, 25.6444, 10.2101, 31.8558, -11.53, 31.8558, -5.31855, 25.6444, -14.6357, 25.6444, -9.97713, 17.8801, -9.97713, 5.45719, -9.97713, -17.8357)
 script = ExtResource("5_5muko")
-
-[node name="Camera2D" type="Camera2D" parent="." groups=["rocket_camera"]]
-script = ExtResource("6_ln3be")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="trajectory_line" method="_on_rocket_body_entered"]

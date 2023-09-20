@@ -9,6 +9,7 @@ shader_parameter/lightest = Vector3(0.878431, 0.972549, 0.815686)
 shader_parameter/light = Vector3(0.533333, 0.752941, 0.439216)
 shader_parameter/dark = Vector3(0.203922, 0.407843, 0.337255)
 shader_parameter/darkest = Vector3(0.0313726, 0.0941176, 0.12549)
+shader_parameter/do_pixelation = null
 
 [node name="filter" type="Node2D"]
 

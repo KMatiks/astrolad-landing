@@ -6,7 +6,7 @@ const SIDE_THRUST: int = 2;
 const TORQUE_THRUST: int = 70;
 const GRAVITY_SCALE: float = 0.045;
 const MIN_CRASH_VEL: int = 20;
-const MIN_CRASH_ANGLE: float = 0.1;
+const MIN_CRASH_ANGLE: float = 0.2;
 
 @onready var viewport: Window = get_viewport();
 @onready var sprite: Sprite2D = get_child(1);

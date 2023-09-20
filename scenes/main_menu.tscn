@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://j22ebtomfem7"]
+
+[ext_resource type="FontFile" uid="uid://bnx6065pkfged" path="res://fonts/Early GameBoy.ttf" id="1_20ruh"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_olndn"]
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="2_hkylv"]
+[ext_resource type="Script" path="res://scripts/quit_button.gd" id="3_5gop7"]
+[ext_resource type="Texture2D" uid="uid://bhe7umcuxyp4c" path="res://assets/main_menu.png" id="3_hv5ig"]
+[ext_resource type="Script" path="res://scripts/main_menu_background.gd" id="4_qjsh6"]
+[ext_resource type="Script" path="res://scenes/main_menu_container.gd" id="5_ctdsg"]
+[ext_resource type="Script" path="res://scripts/main_menu_title.gd" id="5_oymbe"]
+[ext_resource type="PackedScene" uid="uid://l0c4imuc0wbh" path="res://scenes/gameboy_color.tscn" id="7_04hy3"]
+
+[sub_resource type="Theme" id="Theme_ow606"]
+default_font = ExtResource("1_20ruh")
+/fonts/font = ExtResource("1_20ruh")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ow606")
+script = ExtResource("1_olndn")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_hv5ig")
+script = ExtResource("4_qjsh6")
+
+[node name="MainMenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_ctdsg")
+
+[node name="Label" type="Label" parent="MainMenuContainer"]
+layout_mode = 2
+script = ExtResource("5_oymbe")
+
+[node name="StartButton" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+script = ExtResource("2_hkylv")
+
+[node name="QuitButton" type="Button" parent="MainMenuContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+script = ExtResource("3_5gop7")
+
+[node name="filter" parent="." instance=ExtResource("7_04hy3")]
+
+[connection signal="pressed" from="MainMenuContainer/StartButton" to="MainMenuContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_pressed"]
