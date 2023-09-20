@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxng447uvv4n3"]
+[gd_scene load_steps=13 format=3 uid="uid://dxng447uvv4n3"]
 
 [ext_resource type="FontFile" uid="uid://bnx6065pkfged" path="res://fonts/Early GameBoy.ttf" id="1_depl0"]
 [ext_resource type="Script" path="res://scripts/game_over_menu.gd" id="2_wibun"]
-[ext_resource type="Texture2D" uid="uid://bhe7umcuxyp4c" path="res://assets/main_menu.png" id="3_ahpm8"]
+[ext_resource type="Texture2D" uid="uid://cmeknfw47r0k0" path="res://assets/main_menu.png" id="3_ahpm8"]
 [ext_resource type="Script" path="res://scripts/main_menu_background.gd" id="4_5yneg"]
-[ext_resource type="Script" path="res://scenes/main_menu_container.gd" id="5_lhxh7"]
+[ext_resource type="Script" path="res://scripts/main_menu_container.gd" id="5_7qrr8"]
 [ext_resource type="Script" path="res://scripts/game_over_text.gd" id="6_ofbsw"]
 [ext_resource type="Script" path="res://scripts/try_again_button.gd" id="7_al1v2"]
 [ext_resource type="Script" path="res://scripts/quit_button.gd" id="8_8ku3y"]
@@ -13,6 +13,10 @@
 [sub_resource type="Theme" id="Theme_ow606"]
 default_font = ExtResource("1_depl0")
 /fonts/font = ExtResource("1_depl0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cijrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wwqfu"]
 
 [node name="GameOverMenu" type="Control"]
 layout_mode = 3
@@ -35,7 +39,7 @@ script = ExtResource("4_5yneg")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_lhxh7")
+script = ExtResource("5_7qrr8")
 
 [node name="GameOverText" type="Label" parent="MainMenuContainer"]
 layout_mode = 2
@@ -44,14 +48,20 @@ script = ExtResource("6_ofbsw")
 [node name="TryAgainButton" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cijrk")
 script = ExtResource("7_al1v2")
 
 [node name="QuitButton" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../TryAgainButton")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wwqfu")
 script = ExtResource("8_8ku3y")
 
 [node name="filter" parent="." instance=ExtResource("9_1wipb")]
 
+[connection signal="focus_entered" from="MainMenuContainer/TryAgainButton" to="MainMenuContainer/TryAgainButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuContainer/TryAgainButton" to="MainMenuContainer/TryAgainButton" method="_on_focus_exited"]
 [connection signal="pressed" from="MainMenuContainer/TryAgainButton" to="MainMenuContainer/TryAgainButton" method="_on_pressed"]
+[connection signal="focus_entered" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_focus_exited"]
 [connection signal="pressed" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_pressed"]

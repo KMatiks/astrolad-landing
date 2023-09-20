@@ -13,3 +13,10 @@ func _process(delta):
 
 func _on_pressed():
 	get_tree().change_scene_to_file("res://scenes/main.tscn");
+
+func _on_focus_entered():
+	add_theme_font_size_override("font_size", 25)
+
+
+func _on_focus_exited():
+	add_theme_font_size_override("font_size", 18)

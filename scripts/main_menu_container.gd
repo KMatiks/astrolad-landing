@@ -8,7 +8,8 @@ func _ready():
 	position.x = viewport.size.x / 2 - (size.x / 2);
 	position.y = viewport.size.y / 2 - (size.y / 2);
 
-	size.y = viewport.size.y
+	#size.x = viewport.size.x;
+	size.y = viewport.size.y;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

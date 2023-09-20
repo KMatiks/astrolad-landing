@@ -7,7 +7,7 @@ func _ready():
 
 	size.x = viewport.size.x;
 	size.y = viewport.size.y;
-	
+
 	position.x = 0;
 	position.y = 0;
 

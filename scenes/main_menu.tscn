@@ -1,18 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://j22ebtomfem7"]
+[gd_scene load_steps=14 format=3 uid="uid://j22ebtomfem7"]
 
 [ext_resource type="FontFile" uid="uid://bnx6065pkfged" path="res://fonts/Early GameBoy.ttf" id="1_20ruh"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_olndn"]
 [ext_resource type="Script" path="res://scripts/start_button.gd" id="2_hkylv"]
 [ext_resource type="Script" path="res://scripts/quit_button.gd" id="3_5gop7"]
-[ext_resource type="Texture2D" uid="uid://bhe7umcuxyp4c" path="res://assets/main_menu.png" id="3_hv5ig"]
+[ext_resource type="Texture2D" uid="uid://cmeknfw47r0k0" path="res://assets/main_menu.png" id="3_hv5ig"]
 [ext_resource type="Script" path="res://scripts/main_menu_background.gd" id="4_qjsh6"]
-[ext_resource type="Script" path="res://scenes/main_menu_container.gd" id="5_ctdsg"]
 [ext_resource type="Script" path="res://scripts/main_menu_title.gd" id="5_oymbe"]
+[ext_resource type="Script" path="res://scripts/main_menu_container.gd" id="5_rflct"]
 [ext_resource type="PackedScene" uid="uid://l0c4imuc0wbh" path="res://scenes/gameboy_color.tscn" id="7_04hy3"]
 
 [sub_resource type="Theme" id="Theme_ow606"]
 default_font = ExtResource("1_20ruh")
 /fonts/font = ExtResource("1_20ruh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpdqf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gurwr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs6k1"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -35,7 +41,7 @@ script = ExtResource("4_qjsh6")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_ctdsg")
+script = ExtResource("5_rflct")
 
 [node name="Label" type="Label" parent="MainMenuContainer"]
 layout_mode = 2
@@ -44,14 +50,21 @@ script = ExtResource("5_oymbe")
 [node name="StartButton" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qpdqf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gurwr")
 script = ExtResource("2_hkylv")
 
 [node name="QuitButton" type="Button" parent="MainMenuContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qs6k1")
 script = ExtResource("3_5gop7")
 
 [node name="filter" parent="." instance=ExtResource("7_04hy3")]
 
+[connection signal="focus_entered" from="MainMenuContainer/StartButton" to="MainMenuContainer/StartButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuContainer/StartButton" to="MainMenuContainer/StartButton" method="_on_focus_exited"]
 [connection signal="pressed" from="MainMenuContainer/StartButton" to="MainMenuContainer/StartButton" method="_on_pressed"]
+[connection signal="focus_entered" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_focus_exited"]
 [connection signal="pressed" from="MainMenuContainer/QuitButton" to="MainMenuContainer/QuitButton" method="_on_pressed"]

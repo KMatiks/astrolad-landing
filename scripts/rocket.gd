@@ -94,3 +94,4 @@ func _on_body_entered(body):
 	print("Successful landing!")
 	SignalBus.game_over_text = "Great Job!"
 	SignalBus.emit_signal("rocket_landing_succeeded");
+	get_tree().change_scene_to_file("res://scenes/game_over_menu.tscn");

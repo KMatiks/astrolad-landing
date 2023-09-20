@@ -12,9 +12,8 @@ func _ready():
 	position.y = 0#viewport.size.y / 2 - ($MainMenuContainer.size.y / 2);
 
 	SignalBus.has_transitioned_to_main_menu = true;
-	
+
 	$MainMenuContainer/StartButton.grab_focus();
-	
 	$filter/gameboy_filter.material.set_shader_parameter("do_pixelation", false);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
