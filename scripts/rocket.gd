@@ -5,6 +5,8 @@ const THRUST: int = 100;
 const SIDE_THRUST: int = 2;
 const TORQUE_THRUST: int = 70;
 const GRAVITY_SCALE: float = 0.045;
+const MIN_CRASH_VEL: int = 20;
+const MIN_CRASH_ANGLE: float = 0.1;
 
 @onready var viewport: Window = get_viewport();
 @onready var sprite: Sprite2D = get_child(1);
@@ -71,7 +73,7 @@ func _process(delta):
 	prev_frame_vel = linear_velocity;
 
 func has_collision_occurred() -> bool:
-	return (abs(prev_frame_vel.y) > 15 or abs(prev_frame_vel.x) > 15) or abs(rotation) > 0.05
+	return (abs(prev_frame_vel.y) > MIN_CRASH_VEL or abs(prev_frame_vel.x) > MIN_CRASH_VEL) or abs(rotation) > MIN_CRASH_ANGLE
 
 func _on_body_entered(body):
 	is_accepting_input = false;
